@@ -59,17 +59,14 @@ const Home = () => {
                                     </div>
                                     <div className="meta">
                                         <time className="published" dateTime={post.createdDate}>{new Date(post.createdDate).toLocaleDateString()}</time>
-                                        <span className="author">
-                      <span className="name">{post.username}</span>
-                      <img src={post.image} alt={post.title}/>
-                    </span>
                                     </div>
                                 </header>
                                 <Link to={`/posts/${post.id}`} className="image featured">
-                                    <img src={post.image} alt={post.title}/>
+                                    {/*<img src={post.image} alt={post.title}/>*/}
+                                    <img src={"/img/" + post.original} alt="Post"/>
                                 </Link>
                                 <footer>
-                                    <ul className="actions">
+                                <ul className="actions">
                                         <li>
                                             <Link to={`/posts/${post.id}`} className="button large">
                                                 계속 읽기
@@ -95,11 +92,11 @@ const Home = () => {
                         <p>사용할 수 있는 게시물이 없습니다.</p>
                     )}
                 </div>
-                {!isLoggedIn && (
-                    <div className="restriction-message">
-                        <p>로그인 후에 사진을 조회하고 게시글을 업로드할 수 있습니다.</p>
-                    </div>
-                )}
+                {/*{!isLoggedIn && (*/}
+                {/*    <div className="restriction-message">*/}
+                {/*        <p>로그인 후에 사진을 조회하고 게시글을 업로드할 수 있습니다.</p>*/}
+                {/*    </div>*/}
+                {/*)}*/}
             </div>
         </div>
     );

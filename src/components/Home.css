@@ -7,6 +7,7 @@
 
 #main {
   flex: 3;
+  display: flex;
 }
 
 .container {
@@ -51,7 +52,7 @@
 }
 
 .post .image.featured img {
-  width: 100%;
+  width: 100px;
   border-radius: 10px;
 }
 
@@ -64,7 +65,7 @@
   display: -moz-flex;
   display: -webkit-flex;
   display: -ms-flex;
-  display: flex;     
+  display: flex;
   -moz-justify-content: space-between;
   -webkit-justify-content: space-between;
   -ms-justify-content: space-between;
