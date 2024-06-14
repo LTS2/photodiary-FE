@@ -10,7 +10,7 @@ const Messages = () => {
     const fetchMessages = async () => {
       const token = localStorage.getItem('token');
       try {
-        const response = await axios.get('http://localhost:8081/api/messages', {
+        const response = await axios.get('http://localhost:8081/api/messages/received', {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -33,7 +33,7 @@ const Messages = () => {
           Authorization: `Bearer ${token}`,
         },
       });
-      setMessages(messages.filter(message => message._id !== messageId));
+      setMessages(messages.filter(message => message.id !== messageId));
     } catch (err) {
       alert('Error deleting message');
     }
@@ -44,23 +44,21 @@ const Messages = () => {
   }
 
   return (
-
       <div className="messages-container">
-      <h1>Messages</h1>
-      <ul className="message-list">
-        {messages.map(message => (
-          <li className="message-item" key={message._id}>
-            <span className="message-user">{message.userId}</span>
-            <span className="message-content">{message.content}</span>
-            <span className="message-status">
+        <h1>Messages</h1>
+        <ul className="message-list">
+          {messages.map(message => (
+              <li className="message-item" key={message.id}>
+                <span className="message-user">{message.sender.username}</span>
+                <span className="message-content">{message.content}</span>
+                <span className="message-status">
               {message.isRead ? <span className="read-dot"></span> : <span className="unread-dot"></span>}
             </span>
-            <button className="delete-button" onClick={() => handleDelete(message._id)}>🗑️</button>
-          </li>
-        ))}
-      </ul>
+                <button className="delete-button" onClick={() => handleDelete(message.id)}>🗑️</button>
+              </li>
+          ))}
+        </ul>
       </div>
-
   );
 };
 

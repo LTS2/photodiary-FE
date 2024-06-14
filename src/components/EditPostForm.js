@@ -50,6 +50,7 @@ const EditPostForm = ({ postId, onClose, onUpdate }) => {
 		try {
 			await axios.put(`http://localhost:8081/api/posts/${postId}`, formData, {
 				headers: { 'Content-Type': 'multipart/form-data' },
+				withCredentials: true,
 			});
 			onUpdate();
 			onClose();

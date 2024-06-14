@@ -42,20 +42,10 @@ const Head = ({ onSearch }) => {
       </div>
       <nav className={`nav ${menuOpen ? 'open' : ''}`}>
         <ul>
-          {/* <form onSubmit={handleSearchSubmit} className="search-form">
-            <input 
-              type="text"
-              placeholder="Search by keyword"
-              value={searchTerm}
-              onChange={handleSearchChange}
-            />
-            <button type="submit" href="/search">Search</button>
-          </form> */}
           <li><a href="/messages">Message</a></li>
           <li><a href="/createpost">Upload</a></li>
           <li><a href="/search">Search</a></li>
           <li><a href="/userlist">User List</a></li>
-          {/*<li><a href="/src/components/MyPage">My Page</a></li>*/}
           <li><a href="/MyPage">My Page</a></li>
         </ul>
         <button onClick={handleLogout} className="logout-button">Log out</button>
