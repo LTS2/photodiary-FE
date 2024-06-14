@@ -45,7 +45,7 @@ const Home = () => {
                 <li><a href="#" className="button large">Continue Reading</a></li>
               </ul>
               <ul className="stats">
-                <li><a className="fa-message" href="#message">Message</a></li>
+                <li><a className="fa-message" href="#message">쪽지 보내기</a></li>
               </ul>
             </footer>
           </article>
