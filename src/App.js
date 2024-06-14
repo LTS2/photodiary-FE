@@ -11,7 +11,7 @@ import Edit from './components/Edit';
 import SignUp from './components/SignUp';
 import Search from './components/Search';
 import Home from './components/Home';
-import Mypage from './components/Mypage';
+import MyPage from './components/MyPage';
 import './App.css';
 
 
@@ -31,7 +31,7 @@ function App() {
           <Route path="/search" element={<Search />} />
           <Route path="/home" element={<Home />} />
           <Route path="/createpost" element={<CreatePost />} />
-          <Route path="/mypage" element={<Mypage />} />
+          <Route path="/mypage" element={<MyPage />} />
         </Routes>
       </div>
     </Router>

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Head from './Head';
 import './Home.css';
+import {Link} from "react-router-dom";
 
 const Home = () => {
   const [posts, setPosts] = useState([]);
@@ -45,7 +46,15 @@ const Home = () => {
                 <li><a href="#" className="button large">Continue Reading</a></li>
               </ul>
               <ul className="stats">
-                <li><a className="fa-message" href="#message">쪽지 보내기</a></li>
+                <nav>
+                  <ul className="stats">
+                    <li>
+                      <Link className="fa-message" to="/messageChat">쪽지 보내기</Link>
+                    </li>
+                    {/* 다른 링크들도 여기에 추가할 수 있습니다 */}
+                  </ul>
+                </nav>
+
               </ul>
             </footer>
           </article>

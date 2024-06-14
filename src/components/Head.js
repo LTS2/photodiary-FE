@@ -55,7 +55,8 @@ const Head = ({ onSearch }) => {
           <li><a href="/createpost">Upload</a></li>
           <li><a href="/search">Search</a></li>
           <li><a href="/userlist">User List</a></li>
-          <li><a href="/mypage">My Page</a></li>
+          {/*<li><a href="/src/components/MyPage">My Page</a></li>*/}
+          <li><a href="/MyPage">My Page</a></li>
         </ul>
         <button onClick={handleLogout} className="logout-button">Log out</button>
       </nav>
