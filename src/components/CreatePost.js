@@ -35,6 +35,7 @@ const CreatePost = () => {
     const formData = new FormData();
     if (image) {
       formData.append('image', image);
+      console.log("image : "+ image)
     }
     formData.append('title', title);
     formData.append('caption', caption);

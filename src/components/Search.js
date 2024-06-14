@@ -14,7 +14,7 @@ const Search = () => {
     e.preventDefault();
     try {
       const response = await axios.get('http://localhost:8081/api/posts/search', {
-        params: { keyword: searchTerm }
+        params: { keywords: searchTerm }
       });
       setResults(response.data.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp)));
     } catch (error) {
@@ -23,28 +23,32 @@ const Search = () => {
   };
 
   return (
-    <div className="search-container">
-      <form onSubmit={handleSearchSubmit} className="search-form">
-        <input
-          type="text"
-          placeholder="Search by keyword"
-          value={searchTerm}
-          onChange={handleSearchChange}
-        />
-        <button type="submit">Search</button>
-      </form>
-      <div className="search-results">
-        {results.length > 0 ? (
-          results.map(post => (
-            <div key={post._id} className="post">
-              <img src={post.imgUrl} alt={post.description} />
-            </div>
-          ))
-        ) : (
-          <p>No results found</p>
-        )}
+      <div className="search-container">
+        <form onSubmit={handleSearchSubmit} className="search-form">
+          <input
+              type="text"
+              placeholder="Search by keyword"
+              value={searchTerm}
+              onChange={handleSearchChange}
+          />
+          <button type="submit">Search</button>
+        </form>
+        <div className="search-results">
+          {results.length > 0 ? (
+              results.map(post => (
+                  <div key={post.id} className="post">
+                    <img src={"/img/" + post.original} alt="Post"/>
+                    <h2>제목 : {post.title}</h2>
+                    <p>내용 : {post.caption}</p>
+                    <p>태그 : {post.keywords}</p>
+                  </div>
+              ))
+          ) : (
+              <p>No results found</p>
+          )}
+        </div>
+
       </div>
-    </div>
   );
 };
 
