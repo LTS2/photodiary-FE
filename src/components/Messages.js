@@ -10,7 +10,7 @@ const Messages = () => {
     const fetchMessages = async () => {
       const token = localStorage.getItem('token');
       try {
-        const response = await axios.get('http://localhost:5000/api/messages', {
+        const response = await axios.get('http://localhost:8081/api/messages', {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -28,7 +28,7 @@ const Messages = () => {
   const handleDelete = async (messageId) => {
     const token = localStorage.getItem('token');
     try {
-      await axios.delete(`http://localhost:5000/api/messages/${messageId}`, {
+      await axios.delete(`http://localhost:8081/api/messages/${messageId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

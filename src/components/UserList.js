@@ -8,7 +8,7 @@ const UserList = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/users');
+        const response = await axios.get('http://localhost:8081/api/users/');
         setUsers(response.data);
       } catch (error) {
         console.error('Error fetching users:', error);
@@ -24,10 +24,10 @@ const UserList = () => {
       <div className="user-container">
         {users.map((user, index) => (
           <div className="user-card" key={index}>
-            <img src={user.profilePic} alt={user.userName} />
+            <img src={user.profilePic} alt={user.username} />
             <div>
-              <h3>{user.userName}</h3>
-              <p>{user.email}</p>
+              <h3>유저이름: {user.username}</h3>
+              <p>유저 이메일: {user.email}</p>
             </div>
           </div>
         ))}

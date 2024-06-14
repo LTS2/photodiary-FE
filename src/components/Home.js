@@ -9,27 +9,19 @@ const Home = () => {
 
   useEffect(() => {
     // 데이터베이스에서 게시물 가져오기
-    axios.get('http://localhost:5000/api/posts')
+    axios.get('http://localhost:8081/api/posts/')
       .then(response => {
         setPosts(response.data);
       })
       .catch(error => {
         console.error('Error fetching posts:', error);
       });
-
-    axios.get('http://localhost:5000/api/miniPosts')
-      .then(response => {
-        setMiniPosts(response.data);
-      })
-      .catch(error => {
-        console.error('Error fetching miniPosts:', error);
-      });
   }, []);
 
   return (
     <div className="container">
     <div id="wrapper">
-      
+
       <Head />
       <div id="main">
         {posts.length > 0 ? posts.map(post => (

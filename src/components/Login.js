@@ -1,31 +1,28 @@
 import React, { useState } from 'react';
-import './Login.css'; // 스타일을 별도의 CSS 파일로 분리
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import './Login.css';
 
 const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+    const navigate = useNavigate();
 
     const handleLogin = async (event) => {
         event.preventDefault();
 
-        // 예시: 로그인 API 요청
         try {
-            const response = await fetch('http://localhost:5000/api/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ username, password }),
-            });
+            const response = await axios.post(
+                `http://localhost:8081/api/users/login?username=${username}&password=${password}`,
+                {},
+                { withCredentials: true }
+            );
 
-            if (response.ok) {
-                // 로그인 성공 처리
-                const data = await response.json();
-                console.log('로그인 성공:', data);
-                // TODO: 로그인 후 동작 추가
+            if (response.status === 200) {
+                console.log('로그인 성공:', response.data);
+                navigate('/Home'); // 로그인 성공 후 리디렉션
             } else {
-                // 로그인 실패 처리
                 setError('로그인에 실패했습니다. 아이디와 비밀번호를 확인해주세요.');
             }
         } catch (error) {
